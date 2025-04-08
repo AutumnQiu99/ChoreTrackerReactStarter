@@ -100,3 +100,6 @@ end
 gem "shakapacker", "= 6.5"
 
 gem "react-rails", "= 2.6"
+
+gem "shakapacker", "= 6.5"
+gem "react-rails", "= 2.6"
