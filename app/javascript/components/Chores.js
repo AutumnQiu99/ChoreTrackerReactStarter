@@ -17,16 +17,6 @@ function Chores() {
         <h2>Listing chores</h2>
         <table>
           <thead>
-            {
-              chores.map((chore) => (
-                <tr key={`chore-${chore.attributes.id}`}>
-                  <td>{chore.attributes.child_name}</td>
-                  <td>{chore.attributes.task_name}</td>
-                  <td>{chore.attributes.due_on}</td>
-                  <td>{chore.attributes.status}</td>
-                </tr>
-              ))
-            }
             <tr>
               <th width="125" align="left">
                 Child
@@ -38,6 +28,16 @@ function Chores() {
               <th width="75">Status</th>
             </tr>
           </thead>
+          {
+            chores.map((chore) => (
+              <tr key={`chore-${chore.attributes.id}`}>
+                <td>{chore.attributes.child_name}</td>
+                <td>{chore.attributes.task_name}</td>
+                <td>{chore.attributes.due_on}</td>
+                <td>{chore.attributes.status}</td>
+              </tr>
+            ))
+          }
         </table>
       </div>
     </React.Fragment>
