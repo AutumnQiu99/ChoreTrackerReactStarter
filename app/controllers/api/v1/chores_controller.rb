@@ -4,5 +4,11 @@ module Api::V1
       @chores = Chore.chronological
       render json: ChoreSerializer.new(@chores).serialized_json
     end
+
+    def toggle_status
+      @chore = Chore.find(params[:id])
+      @chore.toggle_status
+      render json: ChoreSerializer.new(@chore).serialized_json
+    end
   end
 end

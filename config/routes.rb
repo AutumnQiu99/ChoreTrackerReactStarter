@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       # API routes go here
        get 'chores', to: 'chores#index'
+       put 'chores/:id/toggle_status', to: 'chores#toggle_status'
     end
   end
     
