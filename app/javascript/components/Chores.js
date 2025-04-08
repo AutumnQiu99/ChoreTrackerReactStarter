@@ -1,12 +1,32 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { get } from "../api";
+
 function Chores() {
+  const [chores, setChores] = React.useState([]);
+
+  React.useEffect(() => {
+    get("/v1/chores").then((response) => {
+      setChores(response.data);
+    });
+  }, []);
+
   return (
     <React.Fragment>
       <div>
         <h2>Listing chores</h2>
         <table>
           <thead>
+            {
+              chores.map((chore) => (
+                <tr key={`chore-${chore.attributes.id}`}>
+                  <td>{chore.attributes.child_name}</td>
+                  <td>{chore.attributes.task_name}</td>
+                  <td>{chore.attributes.due_on}</td>
+                  <td>{chore.attributes.status}</td>
+                </tr>
+              ))
+            }
             <tr>
               <th width="125" align="left">
                 Child
