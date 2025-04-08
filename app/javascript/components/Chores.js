@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { get } from "../api";
+import FormattedDate from "./FormattedDate"
 
 function Chores() {
   const [chores, setChores] = React.useState([]);
@@ -33,7 +34,7 @@ function Chores() {
               <tr key={`chore-${chore.attributes.id}`}>
                 <td>{chore.attributes.child_name}</td>
                 <td>{chore.attributes.task_name}</td>
-                <td>{chore.attributes.due_on}</td>
+                <td>{FormattedDate(chore.attributes.due_on)}</td>
                 <td>{chore.attributes.status}</td>
               </tr>
             ))
