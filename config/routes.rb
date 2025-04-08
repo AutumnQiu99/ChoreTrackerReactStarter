@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   scope module: 'api', defaults: {format: 'json'} do
     namespace :v1 do
       # API routes go here
-       
+       get 'chores', to: 'chores#index'
     end
   end
     
