@@ -1,29 +1,27 @@
 import React from "react"
 import PropTypes from "prop-types"
-class Chores extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div>
-          <h2>Listing chores</h2>
-          <table>
-            <thead>
-              <tr>
-                <th width="125" align="left">
-                  Child
-                </th>
-                <th width="200" align="left">
-                  Task
-                </th>
-                <th width="75">Due on</th>
-                <th width="75">Status</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-      </React.Fragment>
-    );
-  }
+function Chores() {
+  return (
+    <React.Fragment>
+      <div>
+        <h2>Listing chores</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="125" align="left">
+                Child
+              </th>
+              <th width="200" align="left">
+                Task
+              </th>
+              <th width="75">Due on</th>
+              <th width="75">Status</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default Chores
