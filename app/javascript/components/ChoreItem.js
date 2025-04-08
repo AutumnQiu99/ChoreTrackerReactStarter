@@ -11,7 +11,9 @@ function ChoreItem({ chore, choreId }) {
         <td>{thisChore.child_name}</td>
         <td>{thisChore.task_name}</td>
         <td>{FormattedDate(thisChore.due_on)}</td>
-        <td>{thisChore.status}</td>
+        <td>
+          <StatusButton choreId={choreId} status={thisChore.status} />
+        </td>
       </tr>
     </React.Fragment>
   );
