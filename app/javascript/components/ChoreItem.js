@@ -1,0 +1,20 @@
+import { React, useState } from "react"
+import PropTypes from "prop-types"
+import FormattedDate from "./FormattedDate"
+
+function ChoreItem({ chore, choreId }) {
+  const [thisChore, setThisChore] = useState(chore.attributes);
+
+  return (
+    <React.Fragment>
+      <tr key={`chore-${choreId}`}>
+        <td>{thisChore.child_name}</td>
+        <td>{thisChore.task_name}</td>
+        <td>{FormattedDate(thisChore.due_on)}</td>
+        <td>{thisChore.status}</td>
+      </tr>
+    </React.Fragment>
+  );
+}
+
+export default ChoreItem

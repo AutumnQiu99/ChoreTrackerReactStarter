@@ -30,14 +30,7 @@ function Chores() {
             </tr>
           </thead>
           {
-            chores.map((chore) => (
-              <tr key={`chore-${chore.attributes.id}`}>
-                <td>{chore.attributes.child_name}</td>
-                <td>{chore.attributes.task_name}</td>
-                <td>{FormattedDate(chore.attributes.due_on)}</td>
-                <td>{chore.attributes.status}</td>
-              </tr>
-            ))
+            chores.map((chore) => <ChoreItem chore={chore} choreId={chore.id} />)
           }
         </table>
       </div>
