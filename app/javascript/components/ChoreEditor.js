@@ -3,7 +3,7 @@ import Select from "./shared/form/Select";
 import StringInput from "./shared/form/StringInput";
 import { get, post } from "../api";
 
-function ChoreEditor() {
+function ChoreEditor({ onCreateChore }) {
     const [childOptions, setChildOptions] = useState([]);
     const [taskOptions, setTaskOptions] = useState([]);
     const [loading, setLoading] = useState();
@@ -37,24 +37,25 @@ function ChoreEditor() {
                 })
             );
         });
-        function createChore() {
-            setAnimating(true);
-            post(`/v1/create_chore`, {
-                chore: {
-                    child_id: child,
-                    task_id: task,
-                    due_on: dueOn,
-                },
-            }).then((data) => {
-                if (data.errors) {
-                    console.log(data.errors);
-                } else {
-                    onCreateChore(data);
-                }
-                setAnimating(false);
-            });
-        }
     }, []);
+
+    function createChore() {
+        setAnimating(true);
+        post(`/v1/create_chore`, {
+            chore: {
+                child_id: child,
+                task_id: task,
+                due_on: dueOn,
+            },
+        }).then((data) => {
+            if (data.errors) {
+                console.log(data.errors);
+            } else {
+                onCreateChore(data);
+            }
+            setAnimating(false);
+        });
+    }
 
     if (loading || childOptions?.length === 0) {
         return <div>loading...</div>;

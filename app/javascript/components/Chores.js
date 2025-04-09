@@ -14,6 +14,10 @@ function Chores() {
     });
   }, []);
 
+  function addChoreToDisplay(chore) {
+    setChores((prevChores) => [...prevChores, chore.data]);
+  }
+
   return (
     <React.Fragment>
       <div>
@@ -39,7 +43,12 @@ function Chores() {
         <br />
         {isEditing && (
           <>
-            <ChoreEditor />
+            <ChoreEditor
+              onCreateChore={(chore) => {
+                addChoreToDisplay(chore);
+                setIsEditing(false);
+              }}
+            />
             &nbsp;&nbsp;
             <a onClick={() => setIsEditing(false)}>Cancel</a>
           </>
