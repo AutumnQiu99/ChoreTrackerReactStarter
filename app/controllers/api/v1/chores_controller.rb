@@ -10,5 +10,15 @@ module Api::V1
       @chore.toggle_status
       render json: ChoreSerializer.new(@chore).serialized_json
     end
+
+    def children
+      @children = Child.active.alphabetical 
+      render json: ChildSerializer.new(@children).serialized_json
+    end
+    
+    def tasks
+      @tasks = Task.active.alphabetical
+      render json: TaskSerializer.new(@tasks).serialized_json
+    end
   end
 end

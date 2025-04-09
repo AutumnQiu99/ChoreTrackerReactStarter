@@ -13,6 +13,10 @@ Rails.application.routes.draw do
       # API routes go here
        get 'chores', to: 'chores#index'
        put 'chores/:id/toggle_status', to: 'chores#toggle_status'
+
+       get 'children', to: 'chores#children'  # for select options for children
+       get 'tasks', to: 'chores#tasks'        # for select options for tasks
+       post 'create_chore', to: 'chores#create'  # to add the record to the database
     end
   end
     
