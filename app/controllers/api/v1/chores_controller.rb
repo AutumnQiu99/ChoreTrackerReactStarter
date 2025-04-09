@@ -20,5 +20,17 @@ module Api::V1
       @tasks = Task.active.alphabetical
       render json: TaskSerializer.new(@tasks).serialized_json
     end
+
+    def create
+      @chore = Chore.new(chore_params)
+      @chore.completed = false  # by default, a new chore isn't completed yet
+      @chore.save
+      render json: ChoreSerializer.new(@chore).serialized_json
+    end
+
+    private
+    def chore_params
+      params.require(:chore).permit(:child_id, :task_id, :due_on)
+    end
   end
 end
