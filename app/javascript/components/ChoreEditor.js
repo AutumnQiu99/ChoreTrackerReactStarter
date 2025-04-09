@@ -37,6 +37,23 @@ function ChoreEditor() {
                 })
             );
         });
+        function createChore() {
+            setAnimating(true);
+            post(`/v1/create_chore`, {
+                chore: {
+                    child_id: child,
+                    task_id: task,
+                    due_on: dueOn,
+                },
+            }).then((data) => {
+                if (data.errors) {
+                    console.log(data.errors);
+                } else {
+                    onCreateChore(data);
+                }
+                setAnimating(false);
+            });
+        }
     }, []);
 
     if (loading || childOptions?.length === 0) {
@@ -64,7 +81,9 @@ function ChoreEditor() {
             <label htmlFor="due_on">Due On:</label>
             <StringInput name="due_on" id="due_on" value={dueOn} setValue={setDueOn} />
 
-            <button>Create Chore</button>
+            <button onClick={createChore} disabled={animating}>
+                Create Chore
+            </button>
         </>
     );
 }
