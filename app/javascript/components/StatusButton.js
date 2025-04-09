@@ -14,3 +14,5 @@ function StatusButton({ choreId, status }) {
 
     return <button onClick={toggleStatus}>{thisStatus}</button>;
 }
+
+export default StatusButton
