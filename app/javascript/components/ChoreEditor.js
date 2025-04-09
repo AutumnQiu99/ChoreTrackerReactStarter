@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "./shared/form/Select";
+import StringInput from "./shared/form/StringInput";
 import { get, post } from "../api";
 
 function ChoreEditor() {
@@ -61,6 +62,7 @@ function ChoreEditor() {
             />
 
             <label htmlFor="due_on">Due On:</label>
+            <StringInput name="due_on" id="due_on" value={dueOn} setValue={setDueOn} />
 
             <button>Create Chore</button>
         </>
