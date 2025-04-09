@@ -1,5 +1,4 @@
 import { React, useState } from "react"
-import PropTypes from "prop-types"
 import FormattedDate from "./FormattedDate"
 import StatusButton from "./StatusButton"
 
