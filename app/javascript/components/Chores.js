@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { get } from "../api";
-import FormattedDate from "./FormattedDate"
+import ChoreItem from "./ChoreItem"
 
 function Chores() {
   const [chores, setChores] = React.useState([]);
