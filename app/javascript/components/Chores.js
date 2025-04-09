@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { get } from "../api";
 import ChoreItem from "./ChoreItem";
+import ChoreEditor from "./ChoreEditor";
 
 function Chores() {
   const [chores, setChores] = useState([]);
@@ -33,16 +34,16 @@ function Chores() {
           {
             chores.map((chore) => (<ChoreItem chore={chore} choreId={chore.id} />))
           }
-          <button onClick={() => setIsEditing(true)}>Create New Chore</button>
-          <br />
-          {isEditing && (
-            <>
-              <ChoreEditor />
-              &nbsp;&nbsp;
-              <a onClick={() => setIsEditing(false)}>Cancel</a>
-            </>
-          )}
         </table>
+        <button onClick={() => setIsEditing(true)}>Create New Chore</button>
+        <br />
+        {isEditing && (
+          <>
+            <ChoreEditor />
+            &nbsp;&nbsp;
+            <a onClick={() => setIsEditing(false)}>Cancel</a>
+          </>
+        )}
       </div>
     </React.Fragment>
   );
