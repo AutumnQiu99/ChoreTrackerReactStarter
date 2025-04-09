@@ -1,10 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import { useState } from "react";
 import { get } from "../api";
-import ChoreItem from "./ChoreItem"
+import ChoreItem from "./ChoreItem";
 
 function Chores() {
-  const [chores, setChores] = React.useState([]);
+  const [chores, setChores] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
 
   React.useEffect(() => {
     get("/v1/chores").then((response) => {
@@ -30,8 +31,17 @@ function Chores() {
             </tr>
           </thead>
           {
-            chores.map((chore) => <ChoreItem chore={chore} choreId={chore.id} />)
+            chores.map((chore) => (<ChoreItem chore={chore} choreId={chore.id} />))
           }
+          <button onClick={() => setIsEditing(true)}>Create New Chore</button>
+          <br />
+          {isEditing && (
+            <>
+              <ChoreEditor />
+              &nbsp;&nbsp;
+              <a onClick={() => setIsEditing(false)}>Cancel</a>
+            </>
+          )}
         </table>
       </div>
     </React.Fragment>

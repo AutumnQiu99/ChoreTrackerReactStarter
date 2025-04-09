@@ -1,6 +1,7 @@
-import { React, useState } from "react"
-import FormattedDate from "./FormattedDate"
-import StatusButton from "./StatusButton"
+import React from "react";
+import { useState } from "react";
+import FormattedDate from "./FormattedDate";
+import StatusButton from "./StatusButton";
 
 function ChoreItem({ chore, choreId }) {
   const [thisChore, setThisChore] = useState(chore.attributes);

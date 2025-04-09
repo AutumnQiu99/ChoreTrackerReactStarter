@@ -1,6 +1,6 @@
-import { React, useState } from "react"
-import PropTypes from "prop-types"
-import { put } from "../api"
+import React from "react";
+import { useState } from "react";
+import { put } from "../api";
 
 function StatusButton({ choreId, status }) {
     const [thisStatus, setThisStatus] = useState(status);
